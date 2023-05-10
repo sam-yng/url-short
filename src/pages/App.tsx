@@ -2,13 +2,17 @@ import React from "react";
 import "../css/index.css";
 import NavBar from "../components/NavBar";
 import Main from "../components/Main";
+import LinkInput from "../components/LinkInput";
+import Stats from "../components/Stats";
 
 function App() {
   return (
-    <main className="mx-24 my-10">
+    <>
       <NavBar />
       <Main />
-    </main>
+      <LinkInput />
+      <Stats />
+    </>
   );
 }
 
