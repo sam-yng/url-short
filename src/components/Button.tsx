@@ -8,7 +8,8 @@ type ButtonProps = {
 const Button: React.FC<ButtonProps> = ({ text, className }: ButtonProps) => {
   return (
     <button
-      className={`${className} border-[#33CCCC] bg-[#33CCCC] text-white border-2`}
+      type="submit"
+      className={`${className} hover:opacity-70 border-[#33CCCC] bg-[#33CCCC] text-white border-2`}
     >
       {text}
     </button>
