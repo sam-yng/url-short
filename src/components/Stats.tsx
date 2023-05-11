@@ -3,11 +3,18 @@ import StatsBox from "./StatsBox";
 import brand from "../assets/images/icon-brand-recognition.svg";
 import records from "../assets/images/icon-detailed-records.svg";
 import custom from "../assets/images/icon-fully-customizable.svg";
+import { useUrl } from "../utils/UrlContext";
+import ResultPanel from "./ResultPanel";
 
 const Stats: React.FC = () => {
+  const { fetchData, result } = useUrl();
+
   return (
     <main className="md:h-[115vh] bg-[#F0F1F6] pb-10">
       <div className="h-full md:mx-[10rem] md:my-10 mx-6 my-6 flex flex-col items-center justify-center">
+        {result.length > 0 && (
+          <ResultPanel regularUrl="hello" shortUrl="hello" />
+        )}
         <h1 className="font-poppinsbold md:text-[40px] text-[30px] mt-[6rem]">
           Advanced Statistics
         </h1>

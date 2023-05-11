@@ -19,10 +19,7 @@ const Main: React.FC = () => {
           className="text-[19px] mt-8 flex justify-center rounded-full w-[10rem] py-2"
         />
       </div>
-      <img
-        className="md:absolute hidden md:block right-0 -mr-[7rem]"
-        src={working}
-      />
+      <img className="md:absolute hidden md:block right-0" src={working} />
     </main>
   );
 };
