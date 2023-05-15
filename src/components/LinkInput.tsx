@@ -4,6 +4,7 @@ import { useUrl } from "../utils/UrlContext";
 
 const LinkInput: React.FC = () => {
   const { url, setUrl, fetchData } = useUrl();
+  const { setHasCopied } = useUrl();
 
   let view;
   if (url.length >= 1) {
@@ -11,6 +12,11 @@ const LinkInput: React.FC = () => {
   } else {
     view = "visible";
   }
+
+  const updateUrl = (e: { target: { value: string } }) => {
+    setUrl(e.target.value);
+    setHasCopied(false);
+  };
 
   return (
     <main className="flex md:w-full h-[10.5rem] md:h-[10rem] md:absolute md:top-[48rem] my-10">
@@ -23,7 +29,7 @@ const LinkInput: React.FC = () => {
           >
             <input
               value={url}
-              onChange={(e) => setUrl(e.target.value)}
+              onChange={updateUrl}
               required
               type="url"
               className="invalid:border-red-500 invalid:placeholder:text-red-500 invalid:placeholder:opacity-60  border-2 rounded-md w-[85%] py-4 md:py-4 px-6 text-[18px] font-poppinsmedium"

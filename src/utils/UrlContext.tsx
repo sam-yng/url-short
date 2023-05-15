@@ -6,6 +6,8 @@ export type UrlContextType = {
   url: string;
   setUrl: (url: string) => void;
   fetchData: (e: { preventDefault: () => void }) => Promise<void>;
+  hasCopied: boolean;
+  setHasCopied: (hasCopied: boolean) => void;
 };
 
 const UrlContext = createContext<UrlContextType | undefined>(undefined);
@@ -15,6 +17,7 @@ export const UrlProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [result, setResult] = useState<string>("");
   const [url, setUrl] = useState<string>("");
+  const [hasCopied, setHasCopied] = useState<boolean>(false);
 
   const fetchData = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -36,6 +39,8 @@ export const UrlProvider: React.FC<{ children: React.ReactNode }> = ({
       url,
       setUrl,
       fetchData,
+      hasCopied,
+      setHasCopied,
     }),
     [result, setResult, url, setUrl, fetchData]
   );
